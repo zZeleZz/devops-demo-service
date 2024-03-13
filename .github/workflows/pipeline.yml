@@ -4,18 +4,40 @@ on:
     branches:
     - main
 jobs:
-  run_unittests:
-    name: hz
+  test:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Git clone
-      uses: actions/checkout@v4
-
-    - name: echo
-      run: echo HELLO!!
+      #----------------------------------------------
+      #       check-out repo and set-up python
+      #----------------------------------------------
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up python
+        id: setup-python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      #----------------------------------------------
+      #  -----  install & configure poetry  -----
+      #----------------------------------------------
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
+      - name: Install project
+        run: poetry install --no-interaction
     
-    - name: run install poetry
-      run: curl -sSL https://install.python-poetry.org | python3 -
+      - name: postgres
+        uses: ikalnytskyi/action-setup-postgres@v5
+        with:
+          username: postgres
+          password: postgres
+          database: postgres
+          port: 5432
+      - name: migration
+        run: poetry run python devops_demo/manage.py makemigrations
+      - name: migration2
+        run: poetry run python devops_demo/manage.py migrate
+      - name: tests
+        run: poetry run python devops_demo/manage.py test
+      
     
   
