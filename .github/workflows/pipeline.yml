@@ -37,7 +37,7 @@ jobs:
       - name: migration2
         run: poetry run python devops_demo/manage.py migrate
       - name: tests
-        run: poetry run python devops_demo/manage.py test
+        run: cd devops_demo && poetry run python manage.py test
       
     
   
