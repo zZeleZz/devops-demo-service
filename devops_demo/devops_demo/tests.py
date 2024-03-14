@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 class UsersTestCase(TestCase):
     def setUp(self):
-        self.admin_username = "admin"
+        self.admin_username = "adminn"
         self.admin_password = "adminpass"
         self.test_username = "test"
         self.test_password = "testpass"
