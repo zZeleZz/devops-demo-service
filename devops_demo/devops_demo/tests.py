@@ -19,7 +19,7 @@ class UsersTestCase(TestCase):
 
     def test_user_login(self):
         login = self.client.login(
-            username=self.admin_username, password='hh'
+            username=self.admin_username, password=self.admin_password
         )
         self.assertEqual(login, True, msg="Could not login with correct credentials")
 
