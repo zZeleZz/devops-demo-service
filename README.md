@@ -8,7 +8,7 @@ Nginx принимает запросы на 80, после чего прокс�
 Создан также пайплайн, которые проводит тестирование сервиса после каждого пуша в репозиторий, при удачном тестировании пушит его в https://hub.docker.com/r/zelez/devops-test с тэгом формируемым `github.sha`
 
 Status of last deployment:<br> 
-<img src="https://github.com/zZeleZz/devops-demo-service/workflows/CI/badge.svg?branch=master"><br>
+<img src="https://github.com/zZeleZz/devops-demo-service/workflows/CI/badge.svg?branch=main"><br>
 
 
 # Задание
