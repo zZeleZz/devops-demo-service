@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 class UsersTestCase(TestCase):
     def setUp(self):
-        self.admin_username = "adminn"
+        self.admin_username = "admin"
         self.admin_password = "adminpass"
         self.test_username = "test"
         self.test_password = "testpass"
@@ -19,7 +19,7 @@ class UsersTestCase(TestCase):
 
     def test_user_login(self):
         login = self.client.login(
-            username=self.admin_username, password=self.admin_password
+            username=self.admin_username, password='hh'
         )
         self.assertEqual(login, True, msg="Could not login with correct credentials")
 
