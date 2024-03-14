@@ -4,8 +4,6 @@ services:
     build: .
     expose:
       - 8000
-#    ports:
-#      - "8000:8000"
     command: python manage.py runserver 0.0.0.0:8000
     environment:
       DB_HOST: "postgres"
@@ -19,8 +17,6 @@ services:
       POSTGRES_DB: "postgres"
       POSTGRES_USER: "postgres"
       POSTGRES_PASSWORD: "postgres"
-#    ports:
-#      - "5432:5432"
     expose:
       - 5432
 
